@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  @apply min-h-screen bg-darkBlue-700;
+  font-family: "Spartan", sans-serif;
+}
+
+body {
+  @apply flex justify-center items-center;
+}
+
+#root {
+  @apply w-full p-6 md:max-w-lg;
+}
