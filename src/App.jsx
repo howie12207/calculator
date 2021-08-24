@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import Header from "./components/Header";
 import DisplayBar from "./components/DisplayBar";
 import ButtonSection from "./components/ButtonSection";
+
 import { plus, minus, times, divide } from "./components/operating";
+import keyCodeData from "./components/keyCodeData";
 
 function App() {
   const [displayValue, setDisplayValue] = useState("0");
   const [lastClick, setLastClick] = useState("");
   const [lastValue, setLastValue] = useState("");
   const [operator, setOperator] = useState("");
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  });
 
   const calculate = () => {
     const operate = {
@@ -56,6 +64,11 @@ function App() {
       setOperator("");
     }
     setLastClick(value);
+  };
+
+  const handleKeyDown = (e) => {
+    const value = keyCodeData(e.keyCode);
+    value && clickHandle(value);
   };
 
   return (
