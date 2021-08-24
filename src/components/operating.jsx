@@ -1,5 +1,5 @@
 const toDecimalTwo = (value) => {
-  return Math.round(value * 10000000000000) / 10000000000000;
+  return Math.round(value * 10000000000000) / 10000000000000 || 0;
 };
 
 export const plus = (prev, next) => {
