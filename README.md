@@ -15,3 +15,7 @@
 - Vite
 - React
 - Tailwind
+
+[Demo](https://howie12207.github.io/calculator/)
+
+[參考樣品](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29)
