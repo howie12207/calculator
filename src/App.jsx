@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import clsx from "clsx";
 
 import Header from "./components/Header";
 import DisplayBar from "./components/DisplayBar";
@@ -12,6 +13,7 @@ function App() {
   const [lastClick, setLastClick] = useState("");
   const [lastValue, setLastValue] = useState("");
   const [operator, setOperator] = useState("");
+  const [theme, setTheme] = useState("1");
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -71,12 +73,27 @@ function App() {
     value && clickHandle(value);
   };
 
+  const changeTheme = (theme) => {
+    setTheme(theme);
+  };
+
   return (
-    <>
-      <Header />
-      <DisplayBar displayValue={displayValue} />
-      <ButtonSection clickHandle={clickHandle} />
-    </>
+    <div
+      className={clsx(
+        "flex justify-center items-center flex-col gap-y-4",
+        "w-full min-h-screen",
+        "p-6",
+        theme === "1" && "bg-darkBlue-700",
+        theme === "2" && "bg-lightGray",
+        theme === "3" && "bg-violet-900",
+      )}
+    >
+      <section className="w-full md:max-w-lg">
+        <Header theme={theme} changeTheme={changeTheme} />
+        <DisplayBar displayValue={displayValue} theme={theme} />
+        <ButtonSection clickHandle={clickHandle} theme={theme} />
+      </section>
+    </div>
   );
 }
 

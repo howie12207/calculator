@@ -6,14 +6,5 @@
 
 html,
 body {
-  @apply min-h-screen bg-darkBlue-700;
   font-family: "Spartan", sans-serif;
-}
-
-body {
-  @apply flex justify-center items-center;
-}
-
-#root {
-  @apply w-full p-6 md:max-w-lg;
 }
